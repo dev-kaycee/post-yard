@@ -9,4 +9,4 @@ class Post(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f' msg: {self.message} user: {self.user}' 
+        return f' {self.message}'

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block tittle %}home{% endblock %}
+
+{%block content%}
+
+<!-- Iterate over object_list -->
+{{ username}}
+{% for post in all_posts %}
+<ul class="list-group">
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      {{ post }}
+      <!-- <span class="badge bg-primary rounded-pill">14</span> -->
+    </li>
+</ul>
+{% empty %}
+<li>{{ username}} have no posts.</li>
+{% endfor %}
+
+{% endblock %}
