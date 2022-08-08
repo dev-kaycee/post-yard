@@ -6,8 +6,8 @@
 <form method="post" , action="{%url 'perform_login'%}">
   {% csrf_token %}
   <div class="mb-3">
-    <label for="username" class="form-label">Student Number</label>
-    <input type="number" class="form-control" name="username">
+    <label for="username" class="form-label">Username</label>
+    <input type="text" class="form-control" name="username">
   </div>
 
   <div class="mb-3">

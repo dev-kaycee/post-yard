@@ -41,6 +41,6 @@ class LoginView(View):
             login(request, user_obj)
             user = request.user.username
             print(user)
-            return HttpResponseRedirect(reverse('home'))
+            return HttpResponseRedirect(reverse('/'))
         else:
             return render(request, 'login.html')
