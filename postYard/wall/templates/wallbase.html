@@ -14,8 +14,6 @@
 	<nav class="navbar navbar-light bg-light">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="#">
-				<img src="{% static 'img/logo.png' %}" alt="" width="30" height="24"
-					class="d-inline-block align-text-top">
 				PostYard
 			</a>
 		</div>
@@ -27,7 +25,17 @@
 	</nav> -->
 
 	<div class="card m-5 p-3">
+		
 		<div class="card-body">
+			<form method="post" , action="{%url 'newPost'%}">
+				{% csrf_token %}
+			<div class="form-group mb-2">
+				<label for="message"></label>
+				<textarea name="message" cols="40" rows="4" required id="id_message" 
+				placeholder="Create a post">
+				</textarea>
+			  <button type="submit" class="btn btn-outline-primary mt-2 mb-3">Post</button>
+			</form>
 			{% if messages %}
 			{% for message in messages %}
 			<div class="alert alert-warning alert-dismissible fade show" role="alert">

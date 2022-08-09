@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse
 from django.contrib import messages
 
+
 from .forms import NewUserRegistrationForm
 
 
@@ -20,7 +21,6 @@ class RegisterView(View):
             login(request, user)
             messages.success(request, "Registration successful.")
             return redirect("home.html")
-        print(form)
         messages.error(request, "Unsuccessfull. invalid details")
         # form = NewUserRegistrationForm()
         return render(request=request, template_name="register.html", context={"register_form":form})
@@ -41,6 +41,6 @@ class LoginView(View):
             login(request, user_obj)
             user = request.user.username
             print(user)
-            return HttpResponseRedirect(reverse('/'))
+            return HttpResponseRedirect(reverse('wall:home'))
         else:
-            return render(request, 'login.html')
+            return render(request, 'wall:home')

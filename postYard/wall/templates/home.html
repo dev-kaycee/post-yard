@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "wallbase.html" %}
 
 {% block tittle %}home{% endblock %}
 
@@ -6,15 +6,19 @@
 
 
 <!-- Iterate over object_list -->
-{% for user in users %}
+<li class="list-group-item d-flex justify-content-between align-items-center">
+  USERNAME <span class="badge bg-dark"> POSTS</span> 
+</li>
+{% for user, post_count in data %}
+
 <ul class="list-group">
-  <a href="{% url 'viewUser' user.id %}" class="btn btn-info btn-
-xs">
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-      {{ user.username}}
-      <span class="badge bg-primary rounded-pill">14</span>
-    </li>
-  </a>
+
+  <li class="list-group-item d-flex justify-content-between align-items-center m-1">
+
+    <a href="{% url 'viewUser' user.id %}" class="link-primary">{{ user}}</a>
+    <span class="badge bg-primary rounded-pill">{{ post_count }}</span>
+
+  </li>
 </ul>
 {% empty %}
 <li>There are no registered users yet.</li>
