@@ -8,7 +8,7 @@
 
 <div class=" container py-5">
   <h1> Register </h1>
-  <form method="post" , action="{%url 'perform_register'%}">
+  <form method="post" , action="{%url 'auth:perform_register'%}">
     {% csrf_token %}
     {{ register_form|crispy }}
     <button class=" btn btn-primary" type=" submit "> Register </button>

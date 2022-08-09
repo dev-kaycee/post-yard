@@ -40,14 +40,14 @@ class UserView(LoginRequiredMixin, ListView):
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
     fields = ['message']
-    success_url = 'home'
+    success_url = 'wall:home'
 
     def form_valid(self, form):
         post_model = form.save(commit=False)
         post_model.user = self.request.user
         # app_model.user = User.objects.get(user=self.request.user) # Or explicit model 
         post_model.save()
-        return HttpResponseRedirect('home')
+        return HttpResponseRedirect(reverse('wall:home'))
 
 
 

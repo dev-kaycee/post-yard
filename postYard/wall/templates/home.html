@@ -15,7 +15,7 @@
 
   <li class="list-group-item d-flex justify-content-between align-items-center m-1">
 
-    <a href="{% url 'viewUser' user.id %}" class="link-primary">{{ user}}</a>
+    <a href="{% url 'wall:viewUser' user.id %}" class="link-primary">{{ user}}</a>
     <span class="badge bg-primary rounded-pill">{{ post_count }}</span>
 
   </li>
