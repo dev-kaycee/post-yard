@@ -1,5 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import get_object_or_404
 from django.contrib.auth.models import User
 from .models import Post
 from django.views.generic.list import ListView
@@ -45,7 +45,6 @@ class PostCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         post_model = form.save(commit=False)
         post_model.user = self.request.user
-        # app_model.user = User.objects.get(user=self.request.user) # Or explicit model 
         post_model.save()
         return HttpResponseRedirect(reverse('wall:home'))
 
