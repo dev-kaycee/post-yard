@@ -10,4 +10,4 @@ urlpatterns = [
     path('home', HomeView.as_view(), name='home'),
     path('user/<user_id>/', UserView.as_view(), name='viewUser'),
     path('newPost', PostCreateView.as_view(), name='newPost'),
-] #+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

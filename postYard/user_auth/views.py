@@ -1,10 +1,9 @@
 from django.shortcuts import render, redirect
 from django.views import View
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse
 from django.contrib import messages
-
 
 from .forms import NewUserRegistrationForm
 
@@ -20,9 +19,8 @@ class RegisterView(View):
             user = form.save()
             login(request, user)
             messages.success(request, "Registration successful.")
-            return redirect("home.html")
+            return redirect("user_auth:login")
         messages.error(request, "Unsuccessfull. invalid details")
-        # form = NewUserRegistrationForm()
         return render(request=request, template_name="register.html", context={"register_form":form})
 
 

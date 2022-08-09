@@ -6,19 +6,39 @@
 
 
 <!-- Iterate over object_list -->
-<li class="list-group-item d-flex justify-content-between align-items-center">
-  USERNAME <span class="badge bg-dark"> POSTS</span> 
-</li>
+<!-- <li class="list-group-item d-flex justify-content-between align-items-center">
+  USERNAME <span class="badge bg-dark"> POSTS</span>
+</li> -->
 {% for user, post_count in data %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="user">
+        <div class="nearby-user">
+          <div class="row">
+            <div class="col-md-2 col-sm-2">
+              <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="user" class="profile-photo-lg">
+            </div>
+            <div class="col-md-7 col-sm-7">
+              <h5><a href="{% url 'wall:viewUser' user.id %}" class="profile-link">{{ user }}</a></h5>
+              <p>{{user.email}}</p>
+              <p class="text-muted">Posted {{ post_count }} post so far</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<ul class="list-group">
+<!-- <ul class="list-group">
 
-  <li class="list-group-item d-flex justify-content-between align-items-center m-1">
+      <li class="list-group-item d-flex justify-content-between align-items-center m-1">
 
-    <a href="{% url 'wall:viewUser' user.id %}" class="link-primary">{{ user}}</a>
-    <span class="badge bg-primary rounded-pill">{{ post_count }}</span>
+        <a href="{% url 'wall:viewUser' user.id %}" class="link-primary">{{ user}}</a>
+        <span class="badge bg-primary rounded-pill">{{ post_count }}</span>
 
-  </li>
+      </li> -->
 </ul>
 {% empty %}
 <li>There are no registered users yet.</li>
