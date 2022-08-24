@@ -14,6 +14,7 @@ class CreatePost(ModelForm):
         self._user = kwargs.pop('user')
         super(CreatePost, self).__init__(*args, **kwargs)
     
+    
     def save(self, commit=True):
         inst = super(CreatePost, self).save(commit=False)
         inst.author = self._user

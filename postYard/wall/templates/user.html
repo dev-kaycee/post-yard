@@ -4,17 +4,65 @@
 
 {%block content%}
 
+
+<div class="row p-2">
+  <!-- SIDEBAR -->
+  <div class="col-3 d-none d-sm-block">
+      <div class="col">
+          <h4 class="text-center">{{username}}</h4>
+      </div>
+      <div class="col text-center">
+        <a href="{% url 'wall:home'%}">
+          <div class="col users-sb users-hv">
+           Home              
+          </div>
+        </a>  
+      </div>
+
+  </div>
+
+  <!-- POSTS -->
+  <div class="col">
+      <div class="row post-scroller">
+          <div class="col">
+              {%for post in all_posts%}
+              <div class="card my-2 post">
+                  <div class="card-body pb-1">
+                      <h5 class="card-title">{{post.user}}</h5>
+                      <p class="card-text">{{post.message}}</p>
+                      <p class="text-primary">{{post.created_at}}</p>
+                  </div>
+              </div>
+              {% empty %}
+              {{username}} have no posts yet.
+              {%endfor%}
+              
+          </div>
+      </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
 <!-- Iterate over object_list -->
-{{ username}}
+{% comment %} {{ username}}
 {% for post in all_posts %}
-<ul class="list-group">
+<ul class="list-group ">
     <li class="list-group-item d-flex justify-content-between align-items-center mb-2">
       {{ post }}
       <!-- <span class="badge bg-primary rounded-pill">14</span> -->
     </li>
 </ul>
 {% empty %}
-<li>{{ username}} have no posts.</li>
-{% endfor %}
+<li>{{ username}} have no posts.</li> {% endcomment %}
+{% comment %} {% endfor %} {% endcomment %}
 
 {% endblock %}
+

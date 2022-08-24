@@ -4,44 +4,44 @@
 
 {%block content%}
 
-
-<!-- Iterate over object_list -->
-<!-- <li class="list-group-item d-flex justify-content-between align-items-center">
-  USERNAME <span class="badge bg-dark"> POSTS</span>
-</li> -->
-{% for user, post_count in data %}
-<div class="container">
-  <div class="row">
-    <div class="col-md-8">
-      <div class="user">
-        <div class="nearby-user">
-          <div class="row">
-            <div class="col-md-2 col-sm-2">
-              <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="user" class="profile-photo-lg">
-            </div>
-            <div class="col-md-7 col-sm-7">
-              <h5><a href="{% url 'wall:viewUser' user.id %}" class="profile-link">{{ user }}</a></h5>
-              <p>{{user.email}}</p>
-              <p class="text-muted">Posted {{ post_count }} post so far</p>
-            </div>
-          </div>
+<div class="row p-2">
+    <!-- SIDEBAR -->
+    <div class="col-3 d-none d-sm-block">
+        <div class="col">
+            <h4 class="text-center">PEOPLE</h4>
         </div>
-      </div>
+        <div class="col text-center user-scroller hide-scroll-bar">
+            {%for user in users%}
+            <a href="{% url 'wall:viewUser' user.id %}">
+                <div class="col users-sb users-hv">
+                    {{user}}
+                </div>
+            </a>
+            {%endfor%}
+        </div>
+        <div class="m-3 p-2 logout-btn text-center">
+            Logout</br> @dev-kaycee {{username}}
+        </div>
+
     </div>
-  </div>
+
+    <!-- POSTS -->
+    <div class="col">
+        <div class="row post-scroller">
+            <div class="col">
+                {%for post in posts%}
+                <div class="card my-2 bg-light post">
+                    <div class="card-body">
+                        <h5 class="card-title"><span> <a
+                                    href="{% url 'wall:viewUser' post.user.id %}">{{post.user}}</a></span></h5>
+                        <p class="card-text">{{post.message}}</p>
+                        <p class="text-primary my-1">{{post.created_at}}</p>
+                    </div>
+                </div>
+                {%endfor%}
+            </div>
+        </div>
+    </div>
+
 </div>
-
-<!-- <ul class="list-group">
-
-      <li class="list-group-item d-flex justify-content-between align-items-center m-1">
-
-        <a href="{% url 'wall:viewUser' user.id %}" class="link-primary">{{ user}}</a>
-        <span class="badge bg-primary rounded-pill">{{ post_count }}</span>
-
-      </li> -->
-</ul>
-{% empty %}
-<li>There are no registered users yet.</li>
-{% endfor %}
-
-{% endblock %}
+{%endblock%}

@@ -8,7 +8,7 @@ from django.contrib.auth import get_user_model
 from django.urls import reverse
 from django.http import HttpResponseRedirect
 from django.views.generic.edit import CreateView
-from .forms import CreatePost
+# from .forms import CreatePost
 
 
 class HomeView(LoginRequiredMixin, ListView):
@@ -16,10 +16,14 @@ class HomeView(LoginRequiredMixin, ListView):
     template_name = 'home.html'
 
     def get_context_data(self, **kwargs):
+        # active_user = get_object_or_404(User, id=self.kwargs['user_id'])
         users = get_user_model().objects.all()
-        post_count =[ len(Post.objects.filter(user_id=user).all()) for user in users]
-        data = zip(users, post_count)
-        context= {'data': data}
+        posts = Post.objects.all().order_by('-created_at')
+        # data = zip(users, post_count)
+        context= {'users': users,
+        'posts': posts,
+        }
+        # 'active_user':active_user}
         return context
 
 

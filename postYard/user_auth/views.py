@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse
 from django.contrib import messages
 
+
 from .forms import NewUserRegistrationForm
 
 
@@ -41,4 +42,4 @@ class LoginView(View):
             print(user)
             return HttpResponseRedirect(reverse('wall:home'))
         else:
-            return render(request, 'wall:home')
+            return render(request,'home.html' )
