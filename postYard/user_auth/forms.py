@@ -12,7 +12,7 @@ class NewUserRegistrationForm(UserCreationForm):
             'name':'username', 
             'id':'username', 
             'type':'text', 
-            'placeholder':'Skywalker22', 
+            'placeholder':'', 
             'maxlength': '16', 
             'minlength': '6', 
             }) 
@@ -22,7 +22,7 @@ class NewUserRegistrationForm(UserCreationForm):
             'name':'email', 
             'id':'email', 
             'type':'email', 
-            'placeholder':'JohnDoe@mail.com', 
+            'placeholder':'Example@mail.com', 
             }) 
         self.fields['password1'].widget.attrs.update({ 
             'class': 'form-control', 
