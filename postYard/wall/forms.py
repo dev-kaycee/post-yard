@@ -8,7 +8,7 @@ class CreatePost(ModelForm):
         fields = ['message']
         # widgets = {
         #     'body': Textarea(attrs={'cols': 60, 'rows': 20}),
-        # }
+        # }xxxxxxxxxxxx
     
     def __init__(self, *args, **kwargs):
         self._user = kwargs.pop('user')

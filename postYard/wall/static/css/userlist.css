@@ -1,4 +1,12 @@
-[class*="col"] {
+.postArea {
+    background: rgb(244, 248, 251);
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.03);
+    /* border-bottom: 1px solid rgba(212, 234, 252, 0.37); */
+    color: rgb(0, 0, 0);
+}
+
+.contentArea {
     background: rgb(244, 248, 251);
     padding: 1rem;
     background-color: rgba(220, 228, 228, 0.03);
@@ -12,7 +20,8 @@
 
 .post-scroller {
     overflow: scroll;
-    height: 52vh;
+    overflow-x: hidden;
+    height: 60vh;
 }
 
 .user-scroller {
@@ -26,10 +35,10 @@
 a:link {
     color: blue;
     text-decoration: none;
-  }
+}
 
 .users-hv:hover {
-    color: rgb(29,155,240);
+    color: rgb(29, 155, 240);
     text-decoration: none;
     background: rgba(179, 180, 182, 0.075);
     border-radius: 15px;
@@ -41,12 +50,13 @@ a:link {
     border: 1px solid rgba(210, 211, 224, 0.829);
 }
 
-.logout-btn{
+.logout-btn {
     background-color: rgb(30, 158, 243);
     color: white;
     border-radius: 5px;
 }
-.logout-btn:hover{
+
+.logout-btn:hover {
     background-color: rgb(24, 122, 187ls);
-    border: 2px solid rgb(29,155,240);
+    border: 2px solid rgb(29, 155, 240);
 }

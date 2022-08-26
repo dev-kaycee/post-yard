@@ -13,24 +13,27 @@
 <body>
 	<nav class="navbar bg-light">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="#">
-				<img src="https://help.twitter.com/content/dam/help-twitter/brand/logo.png" alt="" width="30"
-					height="24" class="d-inline-block align-text-top">
-				My Twitter
+			<a class="navbar-brand" href="{% url 'wall:home'%}">
+				<img src="https://w7.pngwing.com/pngs/1020/239/png-transparent-livechat-online-chat-computer-icons-chat-room-%E4%BA%A4%E9%80%9A-blue-logo-anonymous-thumbnail.png"
+					alt="" width="30" height="24" class="d-inline-block align-text-top">
+				PostYard
 			</a>
 		</div>
 	</nav>
 
-	<div class="container-md mt-4 fixed-top">
+	<div class="container-md mt-5 fixed-top">
 		<div class="col">
-			<div class="col mt-2">
+			<div class="col mt-2 postArea">
 				<form method="post" , action="{%url 'wall:newPost'%}">
 					{% csrf_token %}
 					<div class="form-group">
 						<label for="message"></label>
 						<textarea class="form-control" id="post" rows="3" placeholder="Write a post..."></textarea>
 					</div>
-					<button type="submit" class="btn btn-sm btn-outline-primary mt-1">Submit</button>
+					<div class="text-end">
+
+						<button type="submit" class="btn btn-sm btn-outline-primary mt-1">Submit</button>
+					</div>
 				</form>
 			</div>
 			{%block content%} {% endblock %}

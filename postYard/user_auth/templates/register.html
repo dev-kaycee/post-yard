@@ -4,15 +4,39 @@
 
 {%block content%}
 
-{% load crispy_forms_tags %}
+{% comment %} {% load crispy_forms_tags %} {% endcomment %}
 
-<div class=" container py-5">
-  <h1> Register </h1>
-  <form method="post" , action="{%url 'user_auth:perform_register'%}">
-    {% csrf_token %}
-    {{ register_form|crispy }}
-    <button class=" btn btn-primary" type=" submit "> Register </button>
+<div class=" container">
+  <div class="row">
+  <h3> Register </h1>
+
+<div class="col-md-6 sm-2 text-center">
+  <img src="https://media.istockphoto.com/photos/vintage-retro-grungy-background-design-and-pattern-texture-picture-id656453072?b=1&k=20&m=656453072&s=612x612&w=0&h=cylH3GKw5-3LszI7rte1sjcKClkIjzTvCBeQhRIncHU=" class="img-fluid" alt="...">
+  <div>
+    <p class=" text-center "> If you already have an account, <a href=" /login.html">login</a> instead</p>
+  </div >
+</div>
+ <div class="col-md-6">
+  <form>
+    <div class="form-group">
+      <label for="username">Username  </label>
+      {{form.username}}
+    </div>
+    <div class="form-group">
+      <label for="email">Email Address</label>
+      {{form.email}}
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+      <label for="password1">Password</label>
+      {{form.password1}}
+      <small id="emailHelp" class="form-text text-muted">Must be 8 charactars(numbers and letters).</small>
+    </div>  
+    <div class="form-group">
+      <label for="password2">Confirm Password</label>
+      {{form.password2}}
+    </div>
+    <button type="submit" class="btn btn-sm btn-primary mt-1">Register</button>
   </form>
-  <p class=" text-center "> If you already have an account, <a href=" /login.html">login</a> instead</p>
-</div >
+</div>
 {% endblock %}

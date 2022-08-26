@@ -6,14 +6,14 @@
 
 <div class="row p-2">
     <!-- SIDEBAR -->
-    <div class="col-3 d-none d-sm-block">
+    <div class="col-3 d-none d-sm-block contentArea">
         <div class="col">
-            <h4 class="text-center">PEOPLE</h4>
+            <div class="h4 font-weight-bold mb-1 text-center contentArea">PEOPLE</div>
         </div>
-        <div class="col text-center user-scroller hide-scroll-bar">
+        <div class="col text-center user-scroller contentArea">
             {%for user in users%}
             <a href="{% url 'wall:viewUser' user.id %}">
-                <div class="col users-sb users-hv">
+                <div class="col users-sb users-hv contentArea">
                     {{user}}
                 </div>
             </a>
@@ -22,7 +22,6 @@
         <div class="m-3 p-2 logout-btn text-center">
             Logout</br> @dev-kaycee {{username}}
         </div>
-
     </div>
 
     <!-- POSTS -->
@@ -34,8 +33,8 @@
                     <div class="card-body">
                         <h5 class="card-title"><span> <a
                                     href="{% url 'wall:viewUser' post.user.id %}">{{post.user}}</a></span></h5>
-                        <p class="card-text">{{post.message}}</p>
-                        <p class="text-primary my-1">{{post.created_at}}</p>
+                        <p class="card-text my-1">{{post.message}}</p>
+                        <p class="text-muted text-end my-1">{{post.created_at}}</p>
                     </div>
                 </div>
                 {%endfor%}

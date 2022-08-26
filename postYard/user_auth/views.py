@@ -12,7 +12,7 @@ from .forms import NewUserRegistrationForm
 class RegisterView(View):
     def get(self, request):
         form = NewUserRegistrationForm()
-        return render(request=request, template_name="register.html", context={"register_form":form})
+        return render(request=request, template_name="register.html", context={"form":form})
     
     def post(self, request):
         form = NewUserRegistrationForm(request.POST)
